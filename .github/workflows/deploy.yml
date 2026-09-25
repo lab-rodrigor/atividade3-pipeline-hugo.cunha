@@ -1,7 +1,7 @@
 name: deploy
 
-# O pipeline faz o que você fez à mão na atividade 2. A cada push na main, ele
-# derruba a topologia e sobe de novo, do zero.
+# O pipeline faz o que você fez à mão na atividade 2.
+# A cada push na main, ele derruba a topologia e sobe de novo.
 on:
   push:
     branches: [main]
@@ -62,6 +62,6 @@ jobs:
             -e DEPLOY_SHA=${{ github.sha }} \
             -p ${PORTA}:80
 
-            - name: Conferir que subiu
+      - name: Conferir que subiu
         run: |
           curl --fail http://gr.lab.ayty.org:${PORTA}
