@@ -24,13 +24,12 @@ jobs:
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy
           chmod 600 ~/.ssh/deploy
           ssh-keyscan -H gr.lab.ayty.org >> ~/.ssh/known_hosts
-
       - name: Derrubar a topologia antiga
         run: |
-          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm -f front || true
-          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm -f api || true
-          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm -f banco || true
-
+          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm front || true
+          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm api || true
+          ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker rm banco || true
+    
       - name: Criar rede e volume
         run: |
           ssh -i ~/.ssh/deploy gr-${SLUG}@gr.lab.ayty.org gr-docker network create web || true
