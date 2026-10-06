@@ -6,3 +6,4 @@ O enunciado está em
 O arquivo a completar é `.github/workflows/deploy.yml`.
 
 Acompanhe com `/atividades atividade:3` no Discord.
+Redeploy para correção da Atividade 5.
